@@ -82,7 +82,10 @@ fn fill_in(root: &mut Table, env: &Env) {
 
     {
         let build_deps = upsert_table(root, "build-dependencies");
-        set_string(build_deps, "metadeps", "1.1");
+        let metadeps = upsert_table(build_deps, "metadeps");
+        set_string(metadeps, "version", "1.1");
+        set_string(metadeps, "git", "https://github.com/gdesmott/metadeps.git");
+        set_string(metadeps, "branch", "wip");
     }
 
     {
